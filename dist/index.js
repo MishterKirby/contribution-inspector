@@ -6761,7 +6761,7 @@ class PullRequest extends Contribution {
 	async respond() {
 		try {
 			//const labelsManager = new LabelsManager(this._core, this._payload, this._octokit, this._owner, this._repo, this.LABELS);
-			await labelsManager.createOrUpdateLabels();
+			//await labelsManager.createOrUpdateLabels();
 
 			await this.addRelevantSizeLabel();
 

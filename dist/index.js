@@ -2371,7 +2371,7 @@ const Endpoints = {
   },
   issues: {
     addAssignees: ["POST /repos/{owner}/{repo}/issues/{issue_number}/assignees"],
-    addLabels: ["POST /repos/{owner}/{repo}/issues/{issue_number}/labels"],
+    //addLabels: ["POST /repos/{owner}/{repo}/issues/{issue_number}/labels"],
     checkUserCanBeAssigned: ["GET /repos/{owner}/{repo}/assignees/{assignee}"],
     create: ["POST /repos/{owner}/{repo}/issues"],
     createComment: ["POST /repos/{owner}/{repo}/issues/{issue_number}/comments"],
@@ -2399,19 +2399,19 @@ const Endpoints = {
     listForAuthenticatedUser: ["GET /user/issues"],
     listForOrg: ["GET /orgs/{org}/issues"],
     listForRepo: ["GET /repos/{owner}/{repo}/issues"],
-    listLabelsForMilestone: ["GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels"],
-    listLabelsForRepo: ["GET /repos/{owner}/{repo}/labels"],
-    listLabelsOnIssue: ["GET /repos/{owner}/{repo}/issues/{issue_number}/labels"],
+    //listLabelsForMilestone: ["GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels"],
+   //listLabelsForRepo: ["GET /repos/{owner}/{repo}/labels"],
+   //listLabelsOnIssue: ["GET /repos/{owner}/{repo}/issues/{issue_number}/labels"],
     listMilestones: ["GET /repos/{owner}/{repo}/milestones"],
     lock: ["PUT /repos/{owner}/{repo}/issues/{issue_number}/lock"],
-    removeAllLabels: ["DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels"],
+    //removeAllLabels: ["DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels"],
     removeAssignees: ["DELETE /repos/{owner}/{repo}/issues/{issue_number}/assignees"],
     removeLabel: ["DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}"],
-    setLabels: ["PUT /repos/{owner}/{repo}/issues/{issue_number}/labels"],
+    //setLabels: ["PUT /repos/{owner}/{repo}/issues/{issue_number}/labels"],
     unlock: ["DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock"],
     update: ["PATCH /repos/{owner}/{repo}/issues/{issue_number}"],
     updateComment: ["PATCH /repos/{owner}/{repo}/issues/comments/{comment_id}"],
-    updateLabel: ["PATCH /repos/{owner}/{repo}/labels/{name}"],
+    //updateLabel: ["PATCH /repos/{owner}/{repo}/labels/{name}"],
     updateMilestone: ["PATCH /repos/{owner}/{repo}/milestones/{milestone_number}"]
   },
   licenses: {
@@ -3053,7 +3053,7 @@ const Endpoints = {
       }
     }],
     issuesAndPullRequests: ["GET /search/issues"],
-    labels: ["GET /search/labels"],
+    //labels: ["GET /search/labels"],
     repos: ["GET /search/repositories"],
     topics: ["GET /search/topics", {
       mediaType: {
@@ -5966,14 +5966,14 @@ module.exports = IssueComment;
 const Contribution = __nccwpck_require__(375);
 const IssueTemplateValidator = __nccwpck_require__(5121);
 const IssueComment = __nccwpck_require__(8078);
-const LabelsManager = __nccwpck_require__(8799);
+//const LabelsManager = __nccwpck_require__(8799);
 
 class Issue extends Contribution {
 	constructor(core, payload, octokit, owner, repo) {
 		super(core, payload, octokit, owner, repo);
 	}
 
-	get LABELS() {
+	/*get LABELS() {
 		return [
 			{
 				name: 'Bug :shield:',
@@ -5991,7 +5991,7 @@ class Issue extends Contribution {
 				color: 'ffa726'
 			}
 		];
-	}
+	}*/
 
 	get INPUTS() {
 		return {
@@ -6023,7 +6023,7 @@ class Issue extends Contribution {
 		}
 	}
 
-	getTemplatePath(labels) {
+	/*getTemplatePath(labels) {
 		try {
 			for (let i = 0; i < labels.length; i++) {
 				const labelName = labels[i].name;
@@ -6039,7 +6039,7 @@ class Issue extends Contribution {
 			console.error(err);
 			this._core.setFailed(`Action failed with error: ${err}`);
 		}
-	}
+	}*/
 
 	async respond() {
 		try {

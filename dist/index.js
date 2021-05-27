@@ -6043,8 +6043,8 @@ class Issue extends Contribution {
 
 	async respond() {
 		try {
-			const labelsManager = new LabelsManager(this._core, this._payload, this._octokit, this._owner, this._repo, this.LABELS);
-			await labelsManager.createOrUpdateLabels();
+			//const labelsManager = new LabelsManager(this._core, this._payload, this._octokit, this._owner, this._repo, this.LABELS);
+			//await labelsManager.createOrUpdateLabels();
 
 			const templatePath = this.getTemplatePath(this._payload.labels);
 
@@ -6335,7 +6335,7 @@ module.exports = Contribution;
  * 
  * NOTE: addLabels() function is present in the contribution class.
  */
-class LabelsManager {
+/*class LabelsManager {
 	constructor(core, payload, octokit, owner, repo, labels) {
 		this._core = core;
 		this._payload = payload;
@@ -6347,8 +6347,7 @@ class LabelsManager {
 
 	get LABELS() {
 		return this._labels;
-	}
-
+	}*/
 	/**
 	 * Fetches and returns all labels from a repo.
 	 * Also filters the labels to have only name, description and color properties.
@@ -6520,7 +6519,7 @@ class LabelsManager {
 	}
 }
 
-module.exports = LabelsManager;
+//module.exports = LabelsManager;
 
 /***/ }),
 
@@ -6675,7 +6674,7 @@ module.exports = PullRequestComment;
 const Contribution = __nccwpck_require__(375);
 const PullRequestTemplateValidator = __nccwpck_require__(3329);
 const PullRequestComment = __nccwpck_require__(5463);
-const LabelsManager = __nccwpck_require__(8799);
+//const LabelsManager = __nccwpck_require__(8799);
 
 class PullRequest extends Contribution {
 	constructor(core, payload, octokit, owner, repo) {
@@ -6761,7 +6760,7 @@ class PullRequest extends Contribution {
 
 	async respond() {
 		try {
-			const labelsManager = new LabelsManager(this._core, this._payload, this._octokit, this._owner, this._repo, this.LABELS);
+			//const labelsManager = new LabelsManager(this._core, this._payload, this._octokit, this._owner, this._repo, this.LABELS);
 			await labelsManager.createOrUpdateLabels();
 
 			await this.addRelevantSizeLabel();
